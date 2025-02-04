@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "@/styles/globals.css";
+import "@/styles/color.css";
 import type { AppProps } from "next/app";
 import { Rubik } from "next/font/google";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -8,6 +9,8 @@ import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { AppCacheProvider } from "@mui/material-nextjs/v14-pagesRouter";
 import { CacheProvider } from "@emotion/react";
 import PortfolioContextProvider from "@/context/PortfolioContext";
+import { container } from "./style";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const rubik = Rubik({
   weight: ["300", "400", "500", "700"],
@@ -44,7 +47,11 @@ export default function App({ Component, pageProps }: AppProps) {
           <CacheProvider value={cache}>
             <AppCacheProvider {...pageProps}>
               <ThemeProvider theme={theme}>
-                <Component {...pageProps} />
+                <main className={rubik.className}>
+                  <div className={container}>
+                    <Component {...pageProps} />
+                  </div>
+                </main>
               </ThemeProvider>
             </AppCacheProvider>
           </CacheProvider>
