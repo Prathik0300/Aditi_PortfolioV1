@@ -11,7 +11,6 @@ import {
   projectContent,
   divider,
   projectLinkContainer,
-  projectLinkIcon,
 } from "./style";
 import { Carousel } from "react-responsive-carousel";
 import { PROJECT_ITEMS } from "@/constants";

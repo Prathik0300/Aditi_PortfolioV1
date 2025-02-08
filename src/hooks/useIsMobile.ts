@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import debounce from "lodash-es/debounce";
 
 const useIsMobile = (): boolean => {
