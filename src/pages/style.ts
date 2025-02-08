@@ -1,3 +1,4 @@
+import { mediaQueryMaxWidth } from "@/utils/mediaQueries";
 import { css } from "@emotion/css";
 
 export const container = css`
@@ -14,5 +15,12 @@ export const componentWrapper = css`
   max-width: 850px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
+
+  ${mediaQueryMaxWidth.sm1} {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 25px;
+    gap: 20px;
+  }
 `;

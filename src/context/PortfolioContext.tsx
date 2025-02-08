@@ -1,4 +1,4 @@
-import { createContext, useMemo } from "react";
+import { createContext, useMemo, useRef, useState } from "react";
 
 export const PortfolioContextValue = createContext({});
 export const PortfolioContextUpdater = createContext({});
@@ -8,8 +8,50 @@ const PortfolioContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const contextValue = useMemo(() => ({}), []);
-  const contextUpdater = useMemo(() => ({}), []);
+  const [navbarCollapse, setNavbarCollapse] = useState(false);
+
+  // Refs
+  const homeRef = useRef(null);
+  const aboutMeRef = useRef(null);
+  const projectsRef = useRef(null);
+  const servicesRef = useRef(null);
+  const contactMeRef = useRef(null);
+
+  const idRefMap = useMemo(() => {
+    return {
+      home: homeRef,
+      aboutMe: aboutMeRef,
+      projects: projectsRef,
+      services: servicesRef,
+      contactMe: contactMeRef,
+    };
+  }, []);
+
+  const contextValue = useMemo(
+    () => ({
+      navbarCollapse,
+      homeRef,
+      aboutMeRef,
+      projectsRef,
+      servicesRef,
+      contactMeRef,
+      idRefMap,
+    }),
+    [
+      navbarCollapse,
+      homeRef,
+      aboutMeRef,
+      projectsRef,
+      servicesRef,
+      contactMeRef,
+      idRefMap,
+    ]
+  );
+
+  const contextUpdater = useMemo(
+    () => ({ setNavbarCollapse }),
+    [setNavbarCollapse]
+  );
 
   return (
     <PortfolioContextUpdater.Provider value={contextUpdater}>
@@ -19,6 +61,5 @@ const PortfolioContextProvider = ({
     </PortfolioContextUpdater.Provider>
   );
 };
-
 
 export default PortfolioContextProvider;
