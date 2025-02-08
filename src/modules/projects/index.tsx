@@ -24,7 +24,10 @@ const Project = () => {
 
   return (
     <>
-      <div className="offsetContainer" ref={projectsRef} />
+      <div
+        className="offsetContainer"
+        ref={projectsRef as React.RefObject<HTMLDivElement>}
+      />
       <div className={projectContainer}>
         <h3 className={projectTitle}>PROJECTS</h3>
         <div className={projectInformation}>
@@ -38,27 +41,36 @@ const Project = () => {
                   <div className={projectContent}>
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
-                    {project?.relatedLinks && (
+                    {project.relatedLinks && (
                       <div className={projectLinkContainer}>
-                        {project?.relatedLinks?.map((link) => {
-                          return (
-                            <a
-                              target="_blank"
-                              href={link.url}
-                              key={`${project.title}-link-${link.linkId}`}
-                            >
-                              <IconButton
-                                className={projectLinkBtn}
-                                style={{
-                                  background: link.backgroundColor,
-                                  color: link.contentColor,
-                                }}
+                        {project.relatedLinks.map(
+                          (link: {
+                            url: string;
+                            linkId: string | number;
+                            backgroundColor: string;
+                            contentColor: string;
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            icon: any;
+                          }) => {
+                            return (
+                              <a
+                                target="_blank"
+                                href={link.url}
+                                key={`${project.title}-link-${link.linkId}`}
                               >
-                                <link.icon />
-                              </IconButton>
-                            </a>
-                          );
-                        })}
+                                <IconButton
+                                  className={projectLinkBtn}
+                                  style={{
+                                    background: link.backgroundColor,
+                                    color: link.contentColor,
+                                  }}
+                                >
+                                  <link.icon />
+                                </IconButton>
+                              </a>
+                            );
+                          }
+                        )}
                       </div>
                     )}
                   </div>

@@ -1,7 +1,22 @@
+import {
+  PortfolioContextUpdaterType,
+  PortfolioContextValueType,
+} from "@/types";
 import { createContext, useMemo, useRef, useState } from "react";
 
-export const PortfolioContextValue = createContext({});
-export const PortfolioContextUpdater = createContext({});
+export const PortfolioContextValue = createContext<PortfolioContextValueType>({
+  navbarCollapse: false,
+  homeRef: { current: null },
+  aboutMeRef: { current: null },
+  projectsRef: { current: null },
+  servicesRef: { current: null },
+  contactMeRef: { current: null },
+  idRefMap: {},
+});
+export const PortfolioContextUpdater =
+  createContext<PortfolioContextUpdaterType>({
+    setNavbarCollapse: null,
+  });
 
 const PortfolioContextProvider = ({
   children,
@@ -11,11 +26,11 @@ const PortfolioContextProvider = ({
   const [navbarCollapse, setNavbarCollapse] = useState(false);
 
   // Refs
-  const homeRef = useRef(null);
-  const aboutMeRef = useRef(null);
-  const projectsRef = useRef(null);
-  const servicesRef = useRef(null);
-  const contactMeRef = useRef(null);
+  const homeRef = useRef<HTMLElement | null>(null);
+  const aboutMeRef = useRef<HTMLElement | null>(null);
+  const projectsRef = useRef<HTMLElement | null>(null);
+  const servicesRef = useRef<HTMLElement | null>(null);
+  const contactMeRef = useRef<HTMLElement | null>(null);
 
   const idRefMap = useMemo(() => {
     return {

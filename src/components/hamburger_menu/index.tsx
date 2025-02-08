@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Drawer } from "@mui/material";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const HamburgerMenu = ({ open, onClose, children }: any) => {
   return (
     <Drawer

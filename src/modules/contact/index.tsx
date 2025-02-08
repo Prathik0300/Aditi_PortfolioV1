@@ -15,7 +15,10 @@ const Contact = () => {
 
   return (
     <>
-      <div className="offsetContainer" ref={contactMeRef} />
+      <div
+        className="offsetContainer"
+        ref={contactMeRef as React.RefObject<HTMLDivElement>}
+      />
       <div className={contactContainer}>
         <div className={contactTitle}>
           <div>If you&apos;d like to start a</div>

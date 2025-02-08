@@ -9,7 +9,7 @@ const AboutMe = () => {
 
   return (
     <>
-      <div className="offsetContainer" ref={aboutMeRef} />
+      <div className="offsetContainer" ref={aboutMeRef as React.RefObject<HTMLDivElement>} />
       <div className={aboutMeContainer}>
         <h3 className={aboutMetitle}>ABOUT ME</h3>
         <div

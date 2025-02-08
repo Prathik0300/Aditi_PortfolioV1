@@ -6,18 +6,22 @@ export const useScrollTo = () => {
     contextValue: { idRefMap },
   } = usePortfolioContext();
 
-  const scrollTo = (targetRef?: null | RefObject<HTMLElement>) => {
-    targetRef?.current.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const scrollTo = (targetRef?: RefObject<null | HTMLElement>) => {
+    if (targetRef?.current) {
+      targetRef?.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   };
 
   const scrollToId = (id: string) => {
-    if (!id || !idRefMap[id]) {
+    if (!id || idRefMap[id] === null) {
       return;
     }
-    scrollTo(idRefMap[id]);
+    if (idRefMap[id] !== null) {
+      scrollTo(idRefMap[id]);
+    }
   };
 
   return { scrollToId };

@@ -11,7 +11,10 @@ const Landing = () => {
 
   return (
     <>
-      <div className="offsetContainer" ref={homeRef} />
+      <div
+        className="offsetContainer"
+        ref={homeRef as React.RefObject<HTMLDivElement>}
+      />
       <div className={landingContainer}>
         <div className={contentContainer}>
           <p>HELLO!</p>

@@ -2,8 +2,9 @@ import { downloadResume } from "@/utils/commonUtils";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { FaBehance } from "react-icons/fa";
+import { NavbarContentType, ProjectItemsType, ServicesType } from "@/types";
 
-export const NAVBAR_CONTENT = [
+export const NAVBAR_CONTENT: NavbarContentType[] = [
   {
     displayName: "Home",
     id: "home",
@@ -49,7 +50,7 @@ export const NAVBAR_CONTENT = [
   },
 ] as const;
 
-export const PROJECT_ITEMS = [
+export const PROJECT_ITEMS: ProjectItemsType[] = [
   {
     id: 1,
     title: "Unacademy Women’s Day: A Bold New Narrative",
@@ -260,7 +261,7 @@ export const PROJECT_ITEMS = [
   },
 ] as const;
 
-export const ABOUT_ME = `With 4.5 years of experience in <b>content marketing, branding,
+export const ABOUT_ME: string = `With 4.5 years of experience in <b>content marketing, branding,
 presentation design, and visual storytelling</b>, I have curated
 impactful content for brands like <b>PrepLadder, TVF, and
 Unacademy</b>.<br/><br/>
@@ -268,7 +269,7 @@ I specialize in <b>corporate presentations, social media content, ad
 creatives, video editing, and brand storytelling</b>—transforming
 complex ideas into engaging visual narratives that drive results.`;
 
-export const SERVICES = [
+export const SERVICES: ServicesType[] = [
   {
     id: 1,
     serviceName: "Product GTM 🚀",

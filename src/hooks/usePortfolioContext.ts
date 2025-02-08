@@ -5,7 +5,7 @@ import {
 } from "@/context/PortfolioContext";
 
 export const usePortfolioContext = () => {
-  const contextValue = useContext(PortfolioContextValue) || {};
-  const contextUpdater = useContext(PortfolioContextUpdater) || {};
+  const contextValue = useContext(PortfolioContextValue);
+  const contextUpdater = useContext(PortfolioContextUpdater);
   return { contextValue, contextUpdater };
 };

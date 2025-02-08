@@ -14,7 +14,10 @@ const Services = () => {
 
   return (
     <>
-      <div className="offsetContainer" ref={servicesRef} />
+      <div
+        className="offsetContainer"
+        ref={servicesRef as React.RefObject<HTMLDivElement>}
+      />
       <div className={servicesContainer}>
         <h3 className={servicesTitle}>THINGS I CAN OFFER</h3>
         <div className={servicesContent}>

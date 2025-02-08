@@ -16,9 +16,12 @@ import { usePortfolioContext } from "@/hooks/usePortfolioContext";
 import HamburgerMenu from "@/components/hamburger_menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useScrollTo } from "@/hooks/useScrollTo";
+import { ActiveNavItemType, NavbarContentType } from "@/types";
 
 const Navbar = () => {
-  const [activeNavItem, setActiveNavItem] = useState(NAVBAR_CONTENT[0]);
+  const [activeNavItem, setActiveNavItem] = useState<ActiveNavItemType>(
+    NAVBAR_CONTENT[0]
+  );
   const isMobile = useIsMobile();
   const {
     contextValue: { navbarCollapse },
@@ -35,7 +38,7 @@ const Navbar = () => {
     }
   }, [activeNavItem]);
 
-  const handleNavItemClick = (navItem) => {
+  const handleNavItemClick = (navItem: NavbarContentType) => {
     return () => {
       if (activeNavItem?.id === navItem.id) {
         scrollToId(navItem.id);
@@ -58,7 +61,9 @@ const Navbar = () => {
   };
 
   const toggleNavbarCollapse = () => {
-    setNavbarCollapse((prev) => !prev);
+    if (typeof setNavbarCollapse === "function") {
+      setNavbarCollapse((prev) => !prev);
+    }
   };
 
   return (
