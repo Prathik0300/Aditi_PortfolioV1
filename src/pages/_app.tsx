@@ -9,7 +9,7 @@ import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { AppCacheProvider } from "@mui/material-nextjs/v14-pagesRouter";
 import { CacheProvider } from "@emotion/react";
 import PortfolioContextProvider from "@/context/PortfolioContext";
-import { container } from "./style";
+import { container } from "../styles/style";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const rubik = Rubik({

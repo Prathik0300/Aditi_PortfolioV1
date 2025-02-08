@@ -1,5 +1,5 @@
 import Landing from "@/modules/landing";
-import { componentWrapper } from "./style";
+import { componentWrapper } from "../styles/style";
 import Navbar from "@/modules/navbar";
 import Project from "@/modules/projects";
 import AboutMe from "@/modules/about";
