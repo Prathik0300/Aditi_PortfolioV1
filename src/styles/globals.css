@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent !important;
+  background-color: var(--dark-scheme);
 }
 
 * {
@@ -25,10 +26,4 @@ a {
 
 .offsetContainer {
   height: 15px;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
